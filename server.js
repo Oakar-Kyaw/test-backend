@@ -1,6 +1,8 @@
 let http = require("http");
 
-http.createServer(function (request, response) {
+const hostname = 'localhost';
+const port = 8081;
+const server = http.createServer(function (request, response) {
    // Send the HTTP header 
    // HTTP Status: 200 : OK
    // Content Type: text/plain
@@ -8,4 +10,7 @@ http.createServer(function (request, response) {
    
    // Send the response body as "Hello World"
    response.end('Hello This is Test Server\n');
-}).listen(8081);
+});
+server.listen(port, hostname, () => {
+    console.log(`Server running at http://${hostname}:${port}/`);
+  });
